@@ -453,6 +453,27 @@ spec:
       workspaces:
       - name: workspace
         workspace: workspace
+    - name: matrix-task
+      matrix:
+        params:
+          - name: python_version
+            value:
+              - "3.9"
+              - "3.10"
+          - name: django_version
+            value:
+              - "3.2"
+              - "3.4"
+              - "3.5"
+      taskSpec:
+        params:
+          - name: python_version
+          - name: django_version
+        steps:
+          - name: echo
+            image: registry.fedoraproject.org/fedora-minimal:40
+            script: |
+              echo "python version: $(params.python_version), django version: $(params.django_version)"
     workspaces:
     - name: workspace
     - name: git-auth
