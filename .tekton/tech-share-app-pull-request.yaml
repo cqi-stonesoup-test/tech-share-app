@@ -471,7 +471,7 @@ spec:
           - name: django_version
         steps:
           - name: echo
-            image: registry.fedoraproject.org/fedora-minimal:40
+            image: registry.fedoraproject.org/fedora-minimal:42
             script: |
               echo "python version: $(params.python_version), django version: $(params.django_version)"
     workspaces:
